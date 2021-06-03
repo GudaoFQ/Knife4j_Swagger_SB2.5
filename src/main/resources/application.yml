@@ -1,0 +1,10 @@
+knife4j:
+  #启用
+  enable: true
+  basic:
+    enable: true
+    username: admin
+    password: admin
+  setting:
+    enableFooter: false
+    enableSwaggerModels: false
