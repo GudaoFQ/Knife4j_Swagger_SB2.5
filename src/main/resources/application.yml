@@ -1,10 +1,12 @@
 knife4j:
-  #启用
   enable: true
+  # 生产环境屏蔽
+  # production: true
+  # 开启Swagger的Basic认证功能,默认是false
   basic:
     enable: true
     username: admin
     password: admin
   setting:
     enableFooter: false
-    enableSwaggerModels: false
+    enableSwaggerModels: true

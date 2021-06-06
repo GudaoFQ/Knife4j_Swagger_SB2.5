@@ -5,6 +5,8 @@ import com.gudao.knife4jproject.enums.OpenApiEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -14,7 +16,8 @@ import java.io.Serializable;
  * @Description:
  */
 @ApiModel(value = "开发接口统一返回信息实体")
-@Data
+@Setter
+@Getter
 public class OpenApiResponse<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -115,46 +118,5 @@ public class OpenApiResponse<T> implements Serializable {
      */
     public static <T> OpenApiResponse<T> build(int code, String message) {
         return new OpenApiResponse<T>(code, message);
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getResult() {
-        return result;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("{");
-        sb.append("\"code\":")
-                .append(code);
-        if(0 != code){
-            sb.append(",\"msg\":\"")
-                    .append(msg).append('\"');
-        }
-        if(1 != code){
-            sb.append(",\"result\":")
-                    .append(result);
-        }
-        sb.append('}');
-        return sb.toString();
     }
 }
